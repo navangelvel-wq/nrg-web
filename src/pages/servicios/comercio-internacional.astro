@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Comercio Internacional | NRG Consultores">
+
+  <section class="relative bg-neutral-900 text-white min-h-[380px] flex items-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1800&q=80');">
+    <div class="max-w-7xl mx-auto px-8 w-full py-16 relative z-10">
+      <span class="text-xs font-bold tracking-[0.2em] text-emerald-400 uppercase block mb-3">Global Trade Advisory</span>
+      <h1 class="text-4xl md:text-5xl font-light tracking-tight mb-4 max-w-3xl">
+        Comercio Internacional
+      </h1>
+      <p class="text-neutral-300 text-sm md:text-base max-w-2xl leading-relaxed font-light">
+        Optimizamos la participación de su empresa en los mercados globales a través de soluciones aduanales, logísticas y regulatorias estratégicas.
+      </p>
+    </div>
+  </section>
+
+  <div class="bg-white border-b border-neutral-200 sticky top-16 z-40 hidden sm:block">
+    <div class="max-w-7xl mx-auto px-8 flex space-x-8 text-[12px] font-medium tracking-wide text-neutral-500">
+      <a href="#enfoque" class="py-4 text-black border-b-2 border-black font-semibold">Explore la División</a>
+      <a href="#lineas" class="py-4 hover:text-black transition-colors">Líneas de Servicio</a>
+      <a href="#contacto" class="py-4 hover:text-black transition-colors">Especialistas</a>
+    </div>
+  </div>
+
+  <section id="enfoque" class="py-20 bg-white px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+      
+      <div class="lg:col-span-8 space-y-8">
+        <h2 class="text-3xl font-light text-neutral-900 tracking-tight">Fluidez aduanal y planeación estratégica transfronteriza</h2>
+        <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
+          El tránsito internacional de mercancías exige un estricto apego normativo internacional y un manejo milimétrico de los Incoterms. Brindamos asesoría de alto nivel para asegurar que sus cadenas de suministro mantengan costos óptimos y cero demoras jurídicas en aduanas.
+        </p>
+        <p class="text-neutral-600 text-sm md:text-base leading-relaxed font-light">
+          A través de inteligencia comercial avanzada y el desarrollo estratégico de proveedores calificados, abrimos canales de distribución seguros para corporativos en expansión global.
+        </p>
+
+        <div id="lineas" class="pt-8 border-t border-neutral-100 scroll-mt-32">
+          <h3 class="text-xl font-normal text-neutral-900 mb-6">Estructura del Portafolio Global</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-sm">
+            <div class="border-l border-neutral-300 pl-4 py-1">
+              <h4 class="font-semibold text-neutral-900">Importación y exportación</h4>
+              <p class="text-neutral-500 text-xs mt-1">Estructuración jurídica y aduanal de flujos de mercancías entrantes y salientes.</p>
+            </div>
+            <div class="border-l border-neutral-300 pl-4 py-1">
+              <h4 class="font-semibold text-neutral-900">Estrategia internacional</h4>
+              <p class="text-neutral-500 text-xs mt-1">Modelado estratégico para la inserción segura en nuevos bloques económicos y comerciales.</p>
+            </div>
+            <div class="border-l border-neutral-300 pl-4 py-1">
+              <h4 class="font-semibold text-neutral-900">Logística global</h4>
+              <p class="text-neutral-500 text-xs mt-1">Optimización de tiempos de traslado, costos de flete corporativo y almacenes multinacionales.</p>
+            </div>
+            <div class="border-l border-neutral-300 pl-4 py-1">
+              <h4 class="font-semibold text-neutral-900">Cumplimiento comercial</h4>
+              <p class="text-neutral-500 text-xs mt-1">Validación de regulaciones no arancelarias, certificaciones de origen y normativas vigentes.</p>
+            </div>
+            <div class="border-l border-neutral-300 pl-4 py-1">
+              <h4 class="font-semibold text-neutral-900">Inteligencia de mercados</h4>
+              <p class="text-neutral-500 text-xs mt-1">Análisis masivo de datos macroeconómicos para detectar demandas comerciales rentables.</p>
+            </div>
+            <div class="border-l border-neutral-300 pl-4 py-1">
+              <h4 class="font-semibold text-neutral-900">Desarrollo de proveedores</h4>
+              <p class="text-neutral-500 text-xs mt-1">Sourcing global, auditoría técnica de capacidad y estructuración contractual de abasto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 space-y-6">
+        <div class="bg-neutral-50 p-6 border-t-2 border-black">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-900 mb-2">Contacto Global Trade</h3>
+          <p class="text-xs text-neutral-600 leading-relaxed mb-4">Mitigue riesgos en fronteras y maximice la eficiencia de sus operaciones internacionales.</p>
+          <a href="#contacto" class="text-xs font-semibold text-black underline hover:text-neutral-600">Contactar asesores de aduanas &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

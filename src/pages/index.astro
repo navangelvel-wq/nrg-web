@@ -1,0 +1,127 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const serviciosPremium = [
+  { title: "Tax & Financial Services", desc: "Optimización del cumplimiento tributario y fortalecimiento de la posición financiera mediante una rigurosa planeación basada en datos.", link: "/servicios/fiscal-financiera", img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" },
+  { title: "Business Consulting", desc: "Acompañamiento integral a la alta dirección en la toma de decisiones estratégicas que impulsan la competitividad operativa.", link: "/servicios/consultoria-empresarial", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" },
+  { title: "Riesgos, Procesos y Control Interno", desc: "Fortalecimiento de la infraestructura institucional de la organización mediante el diseño formal de matrices de control efectivas.", link: "/servicios/riesgos-control-interno", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" },
+  { title: "Comercio Internacional", desc: "Soluciones analíticas orientadas al estricto cumplimiento en comercio exterior y la expansión segura en mercados globales.", link: "/servicios/comercio-internacional", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" },
+  { title: "Digital Solutions", desc: "Integración tecnológica avanzada para la automatización de procesos operativos clave y centralización analítica institucional.", link: "/servicios/transformacion-digital", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" },
+  { title: "Marketing y Crecimiento Comercial", desc: "Estrategias de posicionamiento y branding de alta dirección diseñadas para potenciar la atracción de prospectos corporativos.", link: "/servicios/marketing-crecimiento", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" }
+];
+
+const publicacionesRecientes = [
+  { tag: "Perspectiva Industrial", title: "Optimización financiera en logística y cadenas de suministro", desc: "Análisis sobre cómo los consorcios de transporte reducen fugas operativas mediante el diseño formal de controles internos corporativos.", link: "#" },
+  { tag: "Flash Fiscal", title: "Estrategias de blindaje patrimonial ante auditorías complejas", desc: "Un enfoque técnico y metodológico sobre la viabilidad de las operaciones corrientes y la integración de papeles de trabajo bajo principios de control total.", link: "#" },
+  { tag: "Estrategia", title: "Impacto económico de las reformas operativas en el entorno laboral", desc: "Evaluación analítica y cualitativa del impacto de los costos de cumplimiento normativo y seguridad social para las empresas en expansión.", link: "#" }
+];
+---
+
+<BaseLayout title="NRG Consulting | Firma de Consultoría Empresarial">
+
+  <section class="relative bg-neutral-950 text-white min-h-[520px] flex items-center bg-cover bg-center overflow-hidden border-b border-neutral-900" style="background-image: linear-gradient(to right, rgba(10, 10, 10, 0.95) 40%, rgba(10, 10, 10, 0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80');">
+    <div class="max-w-7xl mx-auto px-8 w-full py-28 relative z-10">
+      <div class="max-w-3xl space-y-6">
+        <span class="text-xs font-bold tracking-[0.4em] text-emerald-400 uppercase block">Firma de Consultoría de Negocios</span>
+        <h1 class="text-4xl md:text-6xl font-light tracking-tight leading-[1.1] text-neutral-100">
+          Transformamos el conocimiento técnico en <span class="font-normal italic text-white">valor corporativo</span>.
+        </h1>
+        <p class="text-neutral-400 text-sm md:text-base max-w-xl leading-relaxed font-light">
+          Ofrecemos soluciones avanzadas en Auditoría, Impuestos, Estrategia Financiera y Control Interno para liderar con certidumbre en un mercado global complejo.
+        </p>
+        <div class="pt-4">
+          <a href="#capacidades" class="inline-block bg-neutral-100 text-neutral-950 text-xs font-semibold tracking-wider uppercase px-7 py-4 rounded-sm hover:bg-emerald-400 hover:text-neutral-950 transition-all duration-300 shadow-sm">
+            Explore nuestras soluciones
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegación Estratégica Modificada -->
+  <div class="bg-white border-b border-neutral-200 sticky top-16 z-40 hidden md:block shadow-xs">
+    <div class="max-w-7xl mx-auto px-8 flex space-x-10 text-[11px] font-medium tracking-widest text-neutral-500 uppercase">
+      
+      <a href="#metodologia" class="py-5 hover:text-neutral-950 hover:border-b-2 hover:border-neutral-300 transition-all cursor-pointer">Nuestra Metodología</a>
+      
+      <a href="#capacidades" class="py-5 hover:text-neutral-950 hover:border-b-2 hover:border-neutral-300 transition-all cursor-pointer">Capacidades Técnicas</a>
+      
+      <a href="#inteligencia" class="py-5 hover:text-neutral-950 hover:border-b-2 hover:border-neutral-300 transition-all cursor-pointer">Inteligencia de Negocio</a>
+    </div>
+  </div>
+
+  <section id="metodologia" class="py-24 bg-neutral-50 px-8 scroll-mt-28">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-[10px] font-bold tracking-[0.4em] text-emerald-600 uppercase mb-4 block">&bull; Liderazgo Ejecutivo</span>
+      <h2 class="text-3xl md:text-4xl font-serif text-neutral-950 tracking-tight mb-8">
+        Expertos que respaldan sus decisiones
+      </h2>
+      <p class="text-neutral-600 text-lg leading-relaxed font-light mb-10 max-w-2xl mx-auto">
+        Nuestra firma está integrada por especialistas certificados. Conozca el perfil técnico, la trayectoria y el enfoque metodológico de los socios que lideran las soluciones integrales de NRG Consulting.
+      </p>
+      <a href="/equipo" class="inline-block border border-neutral-900 px-8 py-4 text-[11px] font-bold tracking-widest uppercase text-neutral-950 hover:bg-neutral-950 hover:text-white transition-all duration-300">
+        Conozca la firma y los socios &rarr;
+      </a>
+    </div>
+  </section>
+
+  <section id="capacidades" class="py-24 relative overflow-hidden scroll-mt-28 bg-neutral-950">
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+      <div class="mb-16 max-w-2xl space-y-2">
+        <span class="text-xs font-bold tracking-widest text-emerald-400 uppercase block">Capabilities</span>
+        <h2 class="text-3xl font-light tracking-tight text-white">Soluciones Empresariales de Alto Impacto</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {serviciosPremium.map((servicio) => (
+          <div class="group relative overflow-hidden border border-neutral-800 bg-neutral-900 rounded-sm hover:border-emerald-500/60 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-emerald-900/20">
+            <img src={servicio.img} alt={servicio.title} class="absolute inset-0 w-full h-full object-cover opacity-10 grayscale group-hover:grayscale-0 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 ease-in-out" />
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-neutral-900/40"></div>
+            <div class="relative z-10 p-8 flex flex-col h-full min-h-[320px] justify-between">
+              <div>
+                <div class="w-6 h-[2px] bg-emerald-500 mb-6 group-hover:w-16 transition-all duration-500 group-hover:shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                <h3 class="text-xl font-medium text-white tracking-tight mb-4 group-hover:-translate-y-1 transition-transform duration-300">{servicio.title}</h3>
+                <p class="text-neutral-400 text-xs md:text-sm leading-relaxed font-light group-hover:text-neutral-300 transition-colors duration-300">{servicio.desc}</p>
+              </div>
+              <div class="pt-8">
+                <a href={servicio.link} class="text-[11px] font-semibold tracking-wider uppercase text-emerald-400 group-hover:text-white inline-flex items-center gap-2 transition-colors">
+                  Examinar área técnica <span class="transform group-hover:translate-x-2 transition-transform">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="inteligencia" class="py-24 bg-white px-8 border-t border-neutral-200 scroll-mt-28">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-[10px] font-bold tracking-[0.2em] text-neutral-400 uppercase mb-2 block">Publicaciones Recientes</span>
+          <h2 class="text-3xl font-serif text-neutral-950">Inteligencia de Negocio</h2>
+        </div>
+        <a href="#" class="text-xs font-bold tracking-widest text-emerald-600 uppercase border-b border-emerald-600 pb-1 hover:text-neutral-950 hover:border-neutral-950 transition-all">
+          Ver todas las publicaciones &rarr;
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {publicacionesRecientes.map((articulo) => (
+          <div class="group bg-white border border-neutral-200 p-8 hover:border-emerald-500 hover:shadow-xl hover:shadow-neutral-200 transition-all duration-300 flex flex-col justify-between">
+            <div class="space-y-4">
+              <span class="text-[10px] font-bold tracking-widest text-emerald-600 uppercase block">{articulo.tag}</span>
+              <h3 class="text-lg font-serif text-neutral-950 leading-tight group-hover:text-emerald-600 transition-colors">{articulo.title}</h3>
+              <p class="text-neutral-500 text-sm font-light leading-relaxed">{articulo.desc}</p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-neutral-100">
+              <a href={articulo.link} class="text-[11px] font-bold tracking-widest uppercase text-neutral-950 flex items-center gap-2 group-hover:text-emerald-600 transition-colors">
+                Leer análisis <span class="transform group-hover:translate-x-2 transition-transform">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

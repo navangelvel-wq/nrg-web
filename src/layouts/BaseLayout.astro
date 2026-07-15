@@ -1,0 +1,95 @@
+---
+// src/layouts/BaseLayout.astro
+import '../styles/global.css';
+import Chatbot from '../components/Components/Chatbot.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-['Inter',sans-serif] antialiased text-neutral-800 flex flex-col min-h-screen">
+
+  <header class="bg-black text-white sticky top-0 z-50 text-[13px] font-normal tracking-wide border-b border-neutral-800">
+    <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16">
+      
+      <div class="flex items-center space-x-12">
+        <a href="/" class="text-xl font-bold tracking-tight text-white flex items-center">
+          NRG<span class="text-emerald-500 text-lg">.</span>
+        </a>
+        
+        <div class="hidden md:flex space-x-8 items-center text-neutral-300">
+          
+          <div class="relative group py-4">
+            <button class="hover:text-white transition-colors flex items-center gap-1 focus:outline-none">
+              Quiénes somos
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 mt-4 w-64 bg-neutral-900 shadow-2xl border border-neutral-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2 flex flex-col text-[12px]">
+                <a href="/equipo#manifiesto" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Propósito y Filosofía</a>
+                <a href="/equipo#direccion" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Dirección Estratégica</a>
+                <a href="/equipo#infraestructura" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors">Infraestructura Operativa</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="relative group py-4">
+            <button class="hover:text-white transition-colors flex items-center gap-1 focus:outline-none">
+              Qué hacemos
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 mt-4 w-72 bg-neutral-900 shadow-2xl border border-neutral-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="py-2 flex flex-col text-[12px]">
+                <a href="/servicios/fiscal-financiera" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Tax & Financial Services</a>
+                <a href="/servicios/consultoria-empresarial" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Business Consulting</a>
+                <a href="/servicios/riesgos-control-interno" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Riesgos y Control Interno</a>
+                <a href="/servicios/comercio-internacional" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Comercio Internacional</a>
+                <a href="/servicios/transformacion-digital" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Digital Solutions</a>
+                <a href="/servicios/marketing-crecimiento" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors">Marketing y Crecimiento</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/#perspectivas" class="hover:text-white transition-colors">Nuestra perspectiva</a>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-6 text-neutral-400">
+        <button class="hover:text-white transition-colors flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </button>
+        <span class="text-neutral-700">|</span>
+        <!-- Aquí cambiamos el href de #contacto a /contacto -->
+        <a href="/contacto" class="hover:text-white text-xs uppercase tracking-wider text-neutral-300 font-medium transition-colors">Contacto</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="flex-grow">
+    <slot />
+  </main>
+
+  <footer class="bg-neutral-950 text-neutral-500 py-12 px-8 border-t border-neutral-900 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; {new Date().getFullYear()} NRG Consulting. Todos los derechos reservados.</p>
+      <p class="tracking-widest uppercase text-[10px] text-neutral-600 font-semibold">Firma de Consultoría Empresarial</p>
+    </div>
+  </footer>
+
+  <Chatbot />
+</body>
+</html>
