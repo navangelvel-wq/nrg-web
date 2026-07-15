@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-// CORRECCIÓN: En Astro usamos import.meta.env en lugar de process.env
+// En Astro usamos import.meta.env en lugar de process.env
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const POST = async ({ request }) => {
@@ -24,10 +24,10 @@ export const POST = async ({ request }) => {
       );
     }
 
-    // Diseñamos el correo que llegará a tu bandeja
+    // Enviamos el correo a tu dirección registrada en Resend (Modo Sandbox de prueba)
     await resend.emails.send({
       from: 'Web NRG <onboarding@resend.dev>', 
-      to: 'nrgconsultores@outlook.com', 
+      to: 'navangelvel@gmail.com', 
       subject: `[Contacto Web] Prospecto interesado en: ${servicio}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; color: #171717;">
@@ -52,8 +52,9 @@ export const POST = async ({ request }) => {
     );
 
   } catch (error) {
+    // Si algo falla, forzamos una respuesta estructurada en JSON para evitar el error de parsing en la web
     return new Response(
-      JSON.stringify({ message: 'Error en el servidor al enviar el correo.', error: error.message }), 
+      JSON.stringify({ message: 'Error interno en el servidor.', error: error.message }), 
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
