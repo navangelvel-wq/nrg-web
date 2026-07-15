@@ -238,8 +238,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const datosFormulario = new FormData(formulario);
 
       try {
-        // CORRECCIÓN: Apunta explícitamente a /api/contacto.js
-        const respuesta = await fetch('/api/contacto.js', {
+        // CORRECCIÓN APLICADA: Se removió la extensión .js para que Vercel enrute correctamente la API SSR
+        const respuesta = await fetch('/api/contacto', {
           method: 'POST',
           body: datosFormulario
         });
