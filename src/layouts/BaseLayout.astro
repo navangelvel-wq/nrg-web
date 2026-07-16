@@ -1,7 +1,6 @@
 ---
 // src/layouts/BaseLayout.astro
 import '../styles/global.css';
-import Chatbot from '../components/Components/Chatbot.astro';
 
 interface Props {
   title: string;
@@ -22,8 +21,8 @@ const { title } = Astro.props;
 </head>
 <body class="bg-white font-['Inter',sans-serif] antialiased text-neutral-800 flex flex-col min-h-screen">
 
-  <header class="bg-black text-white sticky top-0 z-[120] text-[13px] font-normal tracking-wide border-b border-neutral-800">
-    <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16 relative z-[130]">
+  <header class="bg-black text-white sticky top-0 w-full text-[13px] font-normal tracking-wide border-b border-neutral-900 md:z-[100]">
+    <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16 relative">
       
       <div class="flex items-center space-x-12">
         <a href="/" class="text-xl font-bold tracking-tight text-white flex items-center">
@@ -31,7 +30,6 @@ const { title } = Astro.props;
         </a>
         
         <div class="hidden md:flex space-x-8 items-center text-neutral-300">
-          
           <div class="relative group py-4">
             <button class="hover:text-white transition-colors flex items-center gap-1 focus:outline-none">
               Quiénes somos
@@ -77,7 +75,7 @@ const { title } = Astro.props;
 
       <button 
         id="boton-menu-movil" 
-        class="md:hidden text-neutral-400 hover:text-white focus:outline-none p-2 relative z-[140] cursor-pointer touch-manipulation"
+        class="md:hidden text-neutral-400 hover:text-white focus:outline-none p-2 fixed right-8 top-3 z-[10000] cursor-pointer touch-manipulation"
         aria-label="Abrir menú"
       >
         <svg id="icono-abrir" class="w-6 h-6 block pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -90,42 +88,48 @@ const { title } = Astro.props;
 
     </nav>
 
-    <!-- CORRECCIÓN CLAVE: Se cambia a 'fixed' con z-[110] (por encima de todo menos del header) y pointer-events-auto -->
     <div 
       id="menu-movil" 
-      class="hidden md:hidden bg-black border-t border-neutral-900 px-8 py-6 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto space-y-6 text-sm uppercase tracking-wider font-medium text-neutral-300 z-[110] transition-all duration-300 pointer-events-auto select-none touch-manipulation"
+      class="hidden md:hidden bg-black/95 backdrop-blur-md px-10 py-12 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto flex flex-col justify-between text-[12px] uppercase tracking-[0.2em] font-medium text-neutral-400 z-[9999] transition-all duration-300 pointer-events-auto"
     >
-      <div class="space-y-2">
-        <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none cursor-pointer pointer-events-auto">
-          Quiénes somos
-          <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div id="submenu-quienes" class="hidden pl-4 border-l border-neutral-800 flex flex-col space-y-3 text-[12px] normal-case tracking-normal text-neutral-400 py-1">
-          <a href="/equipo#manifiesto" class="hover:text-emerald-400 py-1 block pointer-events-auto">Propósito y Filosofía</a>
-          <a href="/equipo#direccion" class="hover:text-emerald-400 py-1 block pointer-events-auto">Dirección Estratégica</a>
-          <a href="/equipo#infraestructura" class="hover:text-emerald-400 py-1 block pointer-events-auto">Infraestructura Operativa</a>
+      <div class="space-y-4">
+        
+        <div class="border-b border-neutral-900 pb-2">
+          <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors">
+            Quiénes somos
+            <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none text-neutral-500" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="submenu-quienes" class="hidden pl-2 flex flex-col space-y-4 text-[11px] normal-case tracking-wider text-neutral-500 py-3 transition-all">
+            <a href="/equipo#manifiesto" class="hover:text-emerald-400 transition-colors py-1 block">Propósito y Filosofía</a>
+            <a href="/equipo#direccion" class="hover:text-emerald-400 transition-colors py-1 block">Dirección Estratégica</a>
+            <a href="/equipo#infraestructura" class="hover:text-emerald-400 transition-colors py-1 block">Infraestructura Operativa</a>
+          </div>
+        </div>
+
+        <div class="border-b border-neutral-900 pb-2">
+          <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors">
+            Qué hacemos
+            <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none text-neutral-500" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="submenu-hacemos" class="hidden pl-2 flex flex-col space-y-4 text-[11px] normal-case tracking-wider text-neutral-500 py-3 transition-all">
+            <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 transition-colors py-1 block">Tax & Financial Services</a>
+            <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 transition-colors py-1 block">Business Consulting</a>
+            <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 transition-colors py-1 block">Riesgos y Control Interno</a>
+            <a href="/servicios/comercio-internacional" class="hover:text-emerald-400 transition-colors py-1 block">Comercio Internacional</a>
+            <a href="/servicios/transformacion-digital" class="hover:text-emerald-400 transition-colors py-1 block">Digital Solutions</a>
+            <a href="/servicios/marketing-crecimiento" class="hover:text-emerald-400 transition-colors py-1 block">Marketing y Crecimiento</a>
+          </div>
+        </div>
+
+        <div class="border-b border-neutral-900 pb-2">
+          <a href="/#perspectivas" class="block py-3 text-neutral-200 hover:text-emerald-400 transition-colors">
+            Nuestra perspectiva
+          </a>
         </div>
       </div>
-
-      <div class="space-y-2">
-        <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none cursor-pointer pointer-events-auto">
-          Qué hacemos
-          <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div id="submenu-hacemos" class="hidden pl-4 border-l border-neutral-800 flex flex-col space-y-3 text-[12px] normal-case tracking-normal text-neutral-400 py-1">
-          <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 py-1 block pointer-events-auto">Tax & Financial Services</a>
-          <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 py-1 block pointer-events-auto">Business Consulting</a>
-          <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 py-1 block pointer-events-auto">Riesgos y Control Interno</a>
-          <a href="/servicios/comercio-internacional" class="hover:text-emerald-400 py-1 block pointer-events-auto">Comercio Internacional</a>
-          <a href="/servicios/transformacion-digital" class="hover:text-emerald-400 py-1 block pointer-events-auto">Digital Solutions</a>
-          <a href="/servicios/marketing-crecimiento" class="hover:text-emerald-400 py-1 block pointer-events-auto">Marketing y Crecimiento</a>
-        </div>
-      </div>
-
-      <a href="/#perspectivas" class="block py-2 hover:text-white transition-colors pointer-events-auto">Nuestra perspectiva</a>
       
-      <div class="pt-6 border-t border-neutral-900">
-        <a href="/contacto" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-3 rounded text-xs font-semibold uppercase tracking-widest transition-all pointer-events-auto">
+      <div class="pt-8 pb-4 flex justify-center">
+        <a href="/contacto" class="w-full max-w-xs bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3.5 rounded-full text-[11px] font-semibold tracking-[0.25em] transition-all duration-300 shadow-lg shadow-emerald-900/20 active:scale-95">
           Contacto
         </a>
       </div>
@@ -133,18 +137,17 @@ const { title } = Astro.props;
 
   </header>
 
-  <main class="flex-grow">
+  <main class="flex-grow relative z-10">
     <slot />
   </main>
 
-  <footer class="bg-neutral-950 text-neutral-500 py-12 px-8 border-t border-neutral-900 text-xs">
+  <footer class="bg-neutral-950 text-neutral-500 py-12 px-8 border-t border-neutral-900 text-xs relative z-10">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <p>&copy; {new Date().getFullYear()} NRG Consulting. Todos los derechos reservados.</p>
       <p class="tracking-widest uppercase text-[10px] text-neutral-600 font-semibold">Firma de Consultoría Empresarial</p>
     </div>
   </footer>
 
-  <Chatbot />
 </body>
 </html>
 
@@ -154,51 +157,54 @@ const { title } = Astro.props;
   const iconoAbrir = document.getElementById('icono-abrir');
   const iconoCerrar = document.getElementById('icono-cerrar');
 
-  function toggleMenu(e) {
-    if (e) e.stopPropagation();
-    if (!botonMenu || !menuMovil || !iconoAbrir || !iconoCerrar) return;
-
-    const menuOculto = menuMovil.classList.toggle('hidden');
-    
-    if (!menuOculto) {
-      iconoAbrir.classList.add('hidden');
-      iconoCerrar.classList.remove('hidden');
-      document.body.classList.add('overflow-hidden');
-    } else {
-      iconoAbrir.classList.remove('hidden');
-      iconoCerrar.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    }
+  if (botonMenu && menuMovil && iconoAbrir && iconoCerrar) {
+    botonMenu.addEventListener('click', (e: Event) => {
+      e.stopPropagation();
+      const menuOculto = menuMovil.classList.toggle('hidden');
+      
+      if (!menuOculto) {
+        menuMovil.style.display = 'flex';
+        iconoAbrir.classList.add('hidden');
+        iconoCerrar.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      } else {
+        menuMovil.style.display = 'none';
+        iconoAbrir.classList.remove('hidden');
+        iconoCerrar.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    });
   }
 
-  if (botonMenu) {
-    // Escuchar tanto clic tradicional como touchstart nativo móvil para eliminar delay táctil
-    botonMenu.addEventListener('click', toggleMenu);
-  }
-
-  // Interactividad Submenú: Quiénes somos
+  // Submenú: Quiénes somos
   const btnQuienes = document.getElementById('btn-submenu-quienes');
   const submenuQuienes = document.getElementById('submenu-quienes');
   const flechaQuienes = document.getElementById('flecha-quienes');
 
   if (btnQuienes && submenuQuienes && flechaQuienes) {
-    btnQuienes.addEventListener('click', (e) => {
+    btnQuienes.addEventListener('click', (e: Event) => {
       e.stopPropagation();
       const oculto = submenuQuienes.classList.toggle('hidden');
-      flechaQuienes.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+      if (flechaQuienes instanceof HTMLElement) {
+        flechaQuienes.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+        flechaQuienes.style.color = oculto ? '#737373' : '#10b981';
+      }
     });
   }
 
-  // Interactividad Submenú: Qué hacemos
+  // Submenú: Qué hacemos
   const btnHacemos = document.getElementById('btn-submenu-hacemos');
   const submenuHacemos = document.getElementById('submenu-hacemos');
   const flechaHacemos = document.getElementById('flecha-hacemos');
 
   if (btnHacemos && submenuHacemos && flechaHacemos) {
-    btnHacemos.addEventListener('click', (e) => {
+    btnHacemos.addEventListener('click', (e: Event) => {
       e.stopPropagation();
       const oculto = submenuHacemos.classList.toggle('hidden');
-      flechaHacemos.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+      if (flechaHacemos instanceof HTMLElement) {
+        flechaHacemos.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+        flechaHacemos.style.color = oculto ? '#737373' : '#10b981';
+      }
     });
   }
 </script>
