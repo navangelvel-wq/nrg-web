@@ -72,11 +72,64 @@ const { title } = Astro.props;
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </button>
         <span class="text-neutral-700">|</span>
-        <!-- Aquí cambiamos el href de #contacto a /contacto -->
         <a href="/contacto" class="hover:text-white text-xs uppercase tracking-wider text-neutral-300 font-medium transition-colors">Contacto</a>
       </div>
 
+      <button 
+        id="boton-menu-movil" 
+        class="md:hidden text-neutral-400 hover:text-white focus:outline-none p-2 relative z-50"
+        aria-label="Abrir menú"
+      >
+        <svg id="icono-abrir" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icono-cerrar" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
     </nav>
+
+    <div 
+      id="menu-movil" 
+      class="hidden md:hidden bg-black border-t border-neutral-900 px-8 py-6 absolute top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto space-y-6 text-sm uppercase tracking-wider font-medium text-neutral-300 z-40 transition-all duration-300"
+    >
+      <div class="space-y-2">
+        <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none">
+          Quiénes somos
+          <svg class="w-4 h-4 transform transition-transform duration-200" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="submenu-quienes" class="hidden pl-4 border-l border-neutral-800 flex flex-col space-y-3 text-[12px] normal-case tracking-normal text-neutral-400 py-1">
+          <a href="/equipo#manifiesto" class="hover:text-emerald-400 py-1 block">Propósito y Filosofía</a>
+          <a href="/equipo#direccion" class="hover:text-emerald-400 py-1 block">Dirección Estratégica</a>
+          <a href="/equipo#infraestructura" class="hover:text-emerald-400 py-1 block">Infraestructura Operativa</a>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none">
+          Qué hacemos
+          <svg class="w-4 h-4 transform transition-transform duration-200" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="submenu-hacemos" class="hidden pl-4 border-l border-neutral-800 flex flex-col space-y-3 text-[12px] normal-case tracking-normal text-neutral-400 py-1">
+          <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 py-1 block">Tax & Financial Services</a>
+          <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 py-1 block">Business Consulting</a>
+          <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 py-1 block">Riesgos y Control Interno</a>
+          <a href="/servicios/comercio-internacional" class="hover:text-emerald-400 py-1 block">Comercio Internacional</a>
+          <a href="/servicios/transformacion-digital" class="hover:text-emerald-400 py-1 block">Digital Solutions</a>
+          <a href="/servicios/marketing-crecimiento" class="hover:text-emerald-400 py-1 block">Marketing y Crecimiento</a>
+        </div>
+      </div>
+
+      <a href="/#perspectivas" class="block py-2 hover:text-white transition-colors">Nuestra perspectiva</a>
+      
+      <div class="pt-6 border-t border-neutral-900">
+        <a href="/contacto" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-3 rounded text-xs font-semibold uppercase tracking-widest transition-all">
+          Contacto
+        </a>
+      </div>
+    </div>
+
   </header>
 
   <main class="flex-grow">
@@ -92,4 +145,3 @@ const { title } = Astro.props;
 
   <Chatbot />
 </body>
-</html>
