@@ -21,7 +21,8 @@ const { title } = Astro.props;
 </head>
 <body class="bg-white font-['Inter',sans-serif] antialiased text-neutral-800 flex flex-col min-h-screen">
 
-  <header class="bg-black text-white sticky top-0 w-full text-[13px] font-normal tracking-wide border-b border-neutral-900 md:z-[100]">
+  <!-- Header con z-index alto para móvil y escritorio -->
+  <header class="bg-black text-white sticky top-0 w-full text-[13px] font-normal tracking-wide border-b border-neutral-900 z-[150]">
     <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16 relative">
       
       <div class="flex items-center space-x-12">
@@ -88,18 +89,19 @@ const { title } = Astro.props;
 
     </nav>
 
+    <!-- Menú móvil corregido: Se eliminó 'uppercase' global, 'tracking-[0.2em]' y el estilo forzado. -->
     <div 
       id="menu-movil" 
-      class="hidden md:hidden bg-black/95 backdrop-blur-md px-10 py-12 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto flex flex-col justify-between text-[12px] uppercase tracking-[0.2em] font-medium text-neutral-400 z-[9999] transition-all duration-300 pointer-events-auto"
+      class="hidden md:hidden bg-black/95 backdrop-blur-md px-10 py-12 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto flex flex-col justify-between text-[14px] tracking-wide font-normal text-neutral-400 z-[9999] transition-all duration-300 pointer-events-auto"
     >
       <div class="space-y-4">
         
         <div class="border-b border-neutral-900 pb-2">
-          <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors">
+          <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors font-medium">
             Quiénes somos
             <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none text-neutral-500" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div id="submenu-quienes" class="hidden pl-2 flex flex-col space-y-4 text-[11px] normal-case tracking-wider text-neutral-500 py-3 transition-all">
+          <div id="submenu-quienes" class="hidden pl-2 flex flex-col space-y-4 text-[13px] text-neutral-500 py-3 transition-all">
             <a href="/equipo#manifiesto" class="hover:text-emerald-400 transition-colors py-1 block">Propósito y Filosofía</a>
             <a href="/equipo#direccion" class="hover:text-emerald-400 transition-colors py-1 block">Dirección Estratégica</a>
             <a href="/equipo#infraestructura" class="hover:text-emerald-400 transition-colors py-1 block">Infraestructura Operativa</a>
@@ -107,11 +109,11 @@ const { title } = Astro.props;
         </div>
 
         <div class="border-b border-neutral-900 pb-2">
-          <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors">
+          <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors font-medium">
             Qué hacemos
             <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none text-neutral-500" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div id="submenu-hacemos" class="hidden pl-2 flex flex-col space-y-4 text-[11px] normal-case tracking-wider text-neutral-500 py-3 transition-all">
+          <div id="submenu-hacemos" class="hidden pl-2 flex flex-col space-y-4 text-[13px] text-neutral-500 py-3 transition-all">
             <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 transition-colors py-1 block">Tax & Financial Services</a>
             <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 transition-colors py-1 block">Business Consulting</a>
             <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 transition-colors py-1 block">Riesgos y Control Interno</a>
@@ -122,14 +124,15 @@ const { title } = Astro.props;
         </div>
 
         <div class="border-b border-neutral-900 pb-2">
-          <a href="/#perspectivas" class="block py-3 text-neutral-200 hover:text-emerald-400 transition-colors">
+          <a href="/#perspectivas" class="block py-3 text-neutral-200 hover:text-emerald-400 font-medium transition-colors">
             Nuestra perspectiva
           </a>
         </div>
       </div>
       
       <div class="pt-8 pb-4 flex justify-center">
-        <a href="/contacto" class="w-full max-w-xs bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3.5 rounded-full text-[11px] font-semibold tracking-[0.25em] transition-all duration-300 shadow-lg shadow-emerald-900/20 active:scale-95">
+        <!-- Botón Contacto en Sentence Case para evitar desorden visual -->
+        <a href="/contacto" class="w-full max-w-xs bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3.5 rounded-full text-[13px] font-semibold transition-all duration-300 shadow-lg shadow-emerald-900/20 active:scale-95">
           Contacto
         </a>
       </div>
@@ -160,15 +163,19 @@ const { title } = Astro.props;
   if (botonMenu && menuMovil && iconoAbrir && iconoCerrar) {
     botonMenu.addEventListener('click', (e: Event) => {
       e.stopPropagation();
-      const menuOculto = menuMovil.classList.toggle('hidden');
       
-      if (!menuOculto) {
-        menuMovil.style.display = 'flex';
+      // Controlamos visibilidad agregando/quitando clases nativas de Tailwind
+      const estaOculto = menuMovil.classList.contains('hidden');
+      
+      if (estaOculto) {
+        menuMovil.classList.remove('hidden');
+        menuMovil.classList.add('flex');
         iconoAbrir.classList.add('hidden');
         iconoCerrar.classList.remove('hidden');
         document.body.classList.add('overflow-hidden');
       } else {
-        menuMovil.style.display = 'none';
+        menuMovil.classList.add('hidden');
+        menuMovil.classList.remove('flex');
         iconoAbrir.classList.remove('hidden');
         iconoCerrar.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
