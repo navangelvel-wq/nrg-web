@@ -13,7 +13,7 @@ const { title } = Astro.props;
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>{title}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +22,8 @@ const { title } = Astro.props;
 </head>
 <body class="bg-white font-['Inter',sans-serif] antialiased text-neutral-800 flex flex-col min-h-screen">
 
-  <header class="bg-black text-white sticky top-0 z-50 text-[13px] font-normal tracking-wide border-b border-neutral-800">
-    <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16">
+  <header class="bg-black text-white sticky top-0 z-[120] text-[13px] font-normal tracking-wide border-b border-neutral-800">
+    <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16 relative z-[130]">
       
       <div class="flex items-center space-x-12">
         <a href="/" class="text-xl font-bold tracking-tight text-white flex items-center">
@@ -77,54 +77,55 @@ const { title } = Astro.props;
 
       <button 
         id="boton-menu-movil" 
-        class="md:hidden text-neutral-400 hover:text-white focus:outline-none p-2 relative z-50"
+        class="md:hidden text-neutral-400 hover:text-white focus:outline-none p-2 relative z-[140] cursor-pointer touch-manipulation"
         aria-label="Abrir menú"
       >
-        <svg id="icono-abrir" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <svg id="icono-abrir" class="w-6 h-6 block pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        <svg id="icono-cerrar" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <svg id="icono-cerrar" class="w-6 h-6 hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
     </nav>
 
+    <!-- CORRECCIÓN CLAVE: Se cambia a 'fixed' con z-[110] (por encima de todo menos del header) y pointer-events-auto -->
     <div 
       id="menu-movil" 
-      class="hidden md:hidden bg-black border-t border-neutral-900 px-8 py-6 absolute top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto space-y-6 text-sm uppercase tracking-wider font-medium text-neutral-300 z-40 transition-all duration-300"
+      class="hidden md:hidden bg-black border-t border-neutral-900 px-8 py-6 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto space-y-6 text-sm uppercase tracking-wider font-medium text-neutral-300 z-[110] transition-all duration-300 pointer-events-auto select-none touch-manipulation"
     >
       <div class="space-y-2">
-        <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none">
+        <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none cursor-pointer pointer-events-auto">
           Quiénes somos
-          <svg class="w-4 h-4 transform transition-transform duration-200" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div id="submenu-quienes" class="hidden pl-4 border-l border-neutral-800 flex flex-col space-y-3 text-[12px] normal-case tracking-normal text-neutral-400 py-1">
-          <a href="/equipo#manifiesto" class="hover:text-emerald-400 py-1 block">Propósito y Filosofía</a>
-          <a href="/equipo#direccion" class="hover:text-emerald-400 py-1 block">Dirección Estratégica</a>
-          <a href="/equipo#infraestructura" class="hover:text-emerald-400 py-1 block">Infraestructura Operativa</a>
+          <a href="/equipo#manifiesto" class="hover:text-emerald-400 py-1 block pointer-events-auto">Propósito y Filosofía</a>
+          <a href="/equipo#direccion" class="hover:text-emerald-400 py-1 block pointer-events-auto">Dirección Estratégica</a>
+          <a href="/equipo#infraestructura" class="hover:text-emerald-400 py-1 block pointer-events-auto">Infraestructura Operativa</a>
         </div>
       </div>
 
       <div class="space-y-2">
-        <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none">
+        <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-2 hover:text-white focus:outline-none cursor-pointer pointer-events-auto">
           Qué hacemos
-          <svg class="w-4 h-4 transform transition-transform duration-200" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div id="submenu-hacemos" class="hidden pl-4 border-l border-neutral-800 flex flex-col space-y-3 text-[12px] normal-case tracking-normal text-neutral-400 py-1">
-          <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 py-1 block">Tax & Financial Services</a>
-          <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 py-1 block">Business Consulting</a>
-          <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 py-1 block">Riesgos y Control Interno</a>
-          <a href="/servicios/comercio-internacional" class="hover:text-emerald-400 py-1 block">Comercio Internacional</a>
-          <a href="/servicios/transformacion-digital" class="hover:text-emerald-400 py-1 block">Digital Solutions</a>
-          <a href="/servicios/marketing-crecimiento" class="hover:text-emerald-400 py-1 block">Marketing y Crecimiento</a>
+          <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 py-1 block pointer-events-auto">Tax & Financial Services</a>
+          <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 py-1 block pointer-events-auto">Business Consulting</a>
+          <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 py-1 block pointer-events-auto">Riesgos y Control Interno</a>
+          <a href="/servicios/comercio-internacional" class="hover:text-emerald-400 py-1 block pointer-events-auto">Comercio Internacional</a>
+          <a href="/servicios/transformacion-digital" class="hover:text-emerald-400 py-1 block pointer-events-auto">Digital Solutions</a>
+          <a href="/servicios/marketing-crecimiento" class="hover:text-emerald-400 py-1 block pointer-events-auto">Marketing y Crecimiento</a>
         </div>
       </div>
 
-      <a href="/#perspectivas" class="block py-2 hover:text-white transition-colors">Nuestra perspectiva</a>
+      <a href="/#perspectivas" class="block py-2 hover:text-white transition-colors pointer-events-auto">Nuestra perspectiva</a>
       
       <div class="pt-6 border-t border-neutral-900">
-        <a href="/contacto" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-3 rounded text-xs font-semibold uppercase tracking-widest transition-all">
+        <a href="/contacto" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-3 rounded text-xs font-semibold uppercase tracking-widest transition-all pointer-events-auto">
           Contacto
         </a>
       </div>
@@ -145,3 +146,59 @@ const { title } = Astro.props;
 
   <Chatbot />
 </body>
+</html>
+
+<script>
+  const botonMenu = document.getElementById('boton-menu-movil');
+  const menuMovil = document.getElementById('menu-movil');
+  const iconoAbrir = document.getElementById('icono-abrir');
+  const iconoCerrar = document.getElementById('icono-cerrar');
+
+  function toggleMenu(e) {
+    if (e) e.stopPropagation();
+    if (!botonMenu || !menuMovil || !iconoAbrir || !iconoCerrar) return;
+
+    const menuOculto = menuMovil.classList.toggle('hidden');
+    
+    if (!menuOculto) {
+      iconoAbrir.classList.add('hidden');
+      iconoCerrar.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    } else {
+      iconoAbrir.classList.remove('hidden');
+      iconoCerrar.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+  }
+
+  if (botonMenu) {
+    // Escuchar tanto clic tradicional como touchstart nativo móvil para eliminar delay táctil
+    botonMenu.addEventListener('click', toggleMenu);
+  }
+
+  // Interactividad Submenú: Quiénes somos
+  const btnQuienes = document.getElementById('btn-submenu-quienes');
+  const submenuQuienes = document.getElementById('submenu-quienes');
+  const flechaQuienes = document.getElementById('flecha-quienes');
+
+  if (btnQuienes && submenuQuienes && flechaQuienes) {
+    btnQuienes.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const oculto = submenuQuienes.classList.toggle('hidden');
+      flechaQuienes.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  }
+
+  // Interactividad Submenú: Qué hacemos
+  const btnHacemos = document.getElementById('btn-submenu-hacemos');
+  const submenuHacemos = document.getElementById('submenu-hacemos');
+  const flechaHacemos = document.getElementById('flecha-hacemos');
+
+  if (btnHacemos && submenuHacemos && flechaHacemos) {
+    btnHacemos.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const oculto = submenuHacemos.classList.toggle('hidden');
+      flechaHacemos.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  }
+</script>
