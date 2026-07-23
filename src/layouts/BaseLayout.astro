@@ -18,6 +18,10 @@ const { title } = Astro.props;
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Integración de Botpress Webchat -->
+  <script is:inline src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+  <script is:inline src="https://files.bpcontent.cloud/2026/07/23/16/20260723160333-SJHB02EX.js" defer></script>
 </head>
 <body class="bg-white font-['Inter',sans-serif] antialiased text-neutral-800 flex flex-col min-h-screen">
 
@@ -89,7 +93,7 @@ const { title } = Astro.props;
 
     </nav>
 
-    <!-- Menú móvil corregido: Se eliminó 'uppercase' global, 'tracking-[0.2em]' y el estilo forzado. -->
+    <!-- Menú móvil -->
     <div 
       id="menu-movil" 
       class="hidden md:hidden bg-black/95 backdrop-blur-md px-10 py-12 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto flex flex-col justify-between text-[14px] tracking-wide font-normal text-neutral-400 z-[9999] transition-all duration-300 pointer-events-auto"
@@ -131,7 +135,6 @@ const { title } = Astro.props;
       </div>
       
       <div class="pt-8 pb-4 flex justify-center">
-        <!-- Botón Contacto en Sentence Case para evitar desorden visual -->
         <a href="/contacto" class="w-full max-w-xs bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3.5 rounded-full text-[13px] font-semibold transition-all duration-300 shadow-lg shadow-emerald-900/20 active:scale-95">
           Contacto
         </a>
@@ -164,7 +167,6 @@ const { title } = Astro.props;
     botonMenu.addEventListener('click', (e: Event) => {
       e.stopPropagation();
       
-      // Controlamos visibilidad agregando/quitando clases nativas de Tailwind
       const estaOculto = menuMovil.classList.contains('hidden');
       
       if (estaOculto) {
