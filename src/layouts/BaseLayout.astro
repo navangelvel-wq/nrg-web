@@ -1,233 +1,466 @@
----
+ ---
+
 import '../styles/global.css';
 
+
+
 interface Props {
+
   title: string;
+
 }
 
+
+
 const { title } = Astro.props;
+
 ---
 
+
+
 <html lang="es" class="scroll-smooth">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <title>{title}</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
+
   <!-- Integración de Botpress Webchat -->
+
   <script is:inline src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+
   <script is:inline src="https://files.bpcontent.cloud/2026/07/23/16/20260723160333-SJHB02EX.js" defer></script>
+
 </head>
+
 <body class="bg-white font-['Inter',sans-serif] antialiased text-neutral-800 flex flex-col min-h-screen">
 
+
+
   <!-- Header con z-index alto para móvil y escritorio -->
+
   <header class="bg-black text-white sticky top-0 w-full text-[13px] font-normal tracking-wide border-b border-neutral-900 z-[150]">
+
     <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16 relative">
-      
+
+     
+
       <div class="flex items-center space-x-12">
+
         <a href="/" class="text-xl font-bold tracking-tight text-white flex items-center">
+
           NRG<span class="text-emerald-500 text-lg">.</span>
+
         </a>
-        
+
+       
+
         <div class="hidden md:flex space-x-8 items-center text-neutral-300">
+
           <div class="relative group py-4">
+
             <button class="hover:text-white transition-colors flex items-center gap-1 focus:outline-none">
+
               Quiénes somos
+
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
             </button>
+
             <div class="absolute left-0 mt-4 w-64 bg-neutral-900 shadow-2xl border border-neutral-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+
               <div class="py-2 flex flex-col text-[12px]">
+
                 <a href="/equipo#manifiesto" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Propósito y Filosofía</a>
+
                 <a href="/equipo#direccion" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Dirección Estratégica</a>
+
                 <a href="/equipo#infraestructura" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors">Infraestructura Operativa</a>
+
               </div>
+
             </div>
+
           </div>
-          
+
+         
+
           <div class="relative group py-4">
+
             <button class="hover:text-white transition-colors flex items-center gap-1 focus:outline-none">
+
               Qué hacemos
+
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
             </button>
+
             <div class="absolute left-0 mt-4 w-72 bg-neutral-900 shadow-2xl border border-neutral-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+
               <div class="py-2 flex flex-col text-[12px]">
+
                 <a href="/servicios/fiscal-financiera" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Tax & Financial Services</a>
+
                 <a href="/servicios/consultoria-empresarial" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Business Consulting</a>
+
                 <a href="/servicios/riesgos-control-interno" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Riesgos y Control Interno</a>
+
                 <a href="/servicios/comercio-internacional" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Comercio Internacional</a>
+
                 <a href="/servicios/transformacion-digital" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors border-b border-neutral-800/50">Digital Solutions</a>
+
                 <a href="/servicios/marketing-crecimiento" class="px-6 py-3 hover:bg-neutral-800 hover:text-emerald-400 transition-colors">Marketing y Crecimiento</a>
+
               </div>
+
             </div>
+
           </div>
+
+
 
           <a href="/#perspectivas" class="hover:text-white transition-colors">Nuestra perspectiva</a>
+
         </div>
+
       </div>
+
+
 
       <div class="hidden md:flex items-center space-x-6 text-neutral-400">
+
         <button class="hover:text-white transition-colors flex items-center gap-1">
+
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+
         </button>
+
         <span class="text-neutral-700">|</span>
+
         <a href="/contacto" class="hover:text-white text-xs uppercase tracking-wider text-neutral-300 font-medium transition-colors">Contacto</a>
+
       </div>
 
-      <button 
-        id="boton-menu-movil" 
+
+
+      <button
+
+        id="boton-menu-movil"
+
         class="md:hidden text-neutral-400 hover:text-white focus:outline-none p-2 fixed right-8 top-3 z-[10000] cursor-pointer touch-manipulation"
+
         aria-label="Abrir menú"
+
       >
+
         <svg id="icono-abrir" class="w-6 h-6 block pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+
         </svg>
+
         <svg id="icono-cerrar" class="w-6 h-6 hidden pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+
         </svg>
+
       </button>
+
+
 
     </nav>
 
+
+
     <!-- Menú móvil -->
-    <div 
-      id="menu-movil" 
+
+    <div
+
+      id="menu-movil"
+
       class="hidden md:hidden bg-black/95 backdrop-blur-md px-10 py-12 fixed top-16 left-0 w-full h-[calc(100vh-4rem)] overflow-y-auto flex flex-col justify-between text-[14px] tracking-wide font-normal text-neutral-400 z-[9999] transition-all duration-300 pointer-events-auto"
+
     >
+
       <div class="space-y-4">
-        
+
+       
+
         <div class="border-b border-neutral-900 pb-2">
+
           <button id="btn-submenu-quienes" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors font-medium">
+
             Quiénes somos
+
             <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none text-neutral-500" id="flecha-quienes" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
           </button>
+
           <div id="submenu-quienes" class="hidden pl-2 flex flex-col space-y-4 text-[13px] text-neutral-500 py-3 transition-all">
+
             <a href="/equipo#manifiesto" class="hover:text-emerald-400 transition-colors py-1 block">Propósito y Filosofía</a>
+
             <a href="/equipo#direccion" class="hover:text-emerald-400 transition-colors py-1 block">Dirección Estratégica</a>
+
             <a href="/equipo#infraestructura" class="hover:text-emerald-400 transition-colors py-1 block">Infraestructura Operativa</a>
+
           </div>
+
         </div>
 
+
+
         <div class="border-b border-neutral-900 pb-2">
+
           <button id="btn-submenu-hacemos" class="w-full text-left flex justify-between items-center py-3 text-neutral-200 hover:text-emerald-400 focus:outline-none cursor-pointer transition-colors font-medium">
+
             Qué hacemos
+
             <svg class="w-4 h-4 transform transition-transform duration-200 pointer-events-none text-neutral-500" id="flecha-hacemos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
           </button>
+
           <div id="submenu-hacemos" class="hidden pl-2 flex flex-col space-y-4 text-[13px] text-neutral-500 py-3 transition-all">
+
             <a href="/servicios/fiscal-financiera" class="hover:text-emerald-400 transition-colors py-1 block">Tax & Financial Services</a>
+
             <a href="/servicios/consultoria-empresarial" class="hover:text-emerald-400 transition-colors py-1 block">Business Consulting</a>
+
             <a href="/servicios/riesgos-control-interno" class="hover:text-emerald-400 transition-colors py-1 block">Riesgos y Control Interno</a>
+
             <a href="/servicios/comercio-internacional" class="hover:text-emerald-400 transition-colors py-1 block">Comercio Internacional</a>
+
             <a href="/servicios/transformacion-digital" class="hover:text-emerald-400 transition-colors py-1 block">Digital Solutions</a>
+
             <a href="/servicios/marketing-crecimiento" class="hover:text-emerald-400 transition-colors py-1 block">Marketing y Crecimiento</a>
+
           </div>
+
         </div>
 
+
+
         <div class="border-b border-neutral-900 pb-2">
+
           <a href="/#perspectivas" class="block py-3 text-neutral-200 hover:text-emerald-400 font-medium transition-colors">
+
             Nuestra perspectiva
+
           </a>
+
         </div>
+
       </div>
-      
+
+     
+
       <div class="pt-8 pb-4 flex justify-center">
+
         <a href="/contacto" class="w-full max-w-xs bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3.5 rounded-full text-[13px] font-semibold transition-all duration-300 shadow-lg shadow-emerald-900/20 active:scale-95">
+
           Contacto
+
         </a>
+
       </div>
+
     </div>
+
+
 
   </header>
 
+
+
   <main class="flex-grow relative z-10">
+
     <slot />
+
   </main>
 
+
+
   <!-- Botón WhatsApp Alineado al Centro del Chatbot -->
-  <a 
-    href="https://wa.me/5215555555555?text=Hola,%20me%20gustaría%20recibir%20más%20información" 
-    target="_blank" 
+
+  <a
+
+    href="https://wa.me/524424607975?text=Hola,%20me%20gustaría%20recibir%20más%20información"
+
+    target="_blank"
+
     rel="noopener noreferrer"
+
     aria-label="Contactar por WhatsApp"
+
     class="fixed bottom-24 right-[22px] z-[90] w-14 h-14 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 filter drop-shadow-md"
+
   >
-    <img 
-      src="/whatsaap.png" 
-      alt="WhatsApp" 
+
+    <img
+
+      src="/whatsaap.png"
+
+      alt="WhatsApp"
+
       class="w-full h-full object-contain"
+
     />
+
   </a>
 
+
+
   <footer class="bg-neutral-950 text-neutral-500 py-12 px-8 border-t border-neutral-900 text-xs relative z-10">
+
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+
       <p>&copy; {new Date().getFullYear()} NRG Consulting. Todos los derechos reservados.</p>
+
       <p class="tracking-widest uppercase text-[10px] text-neutral-600 font-semibold">Firma de Consultoría Empresarial</p>
+
     </div>
+
   </footer>
 
+
+
 </body>
+
 </html>
 
+
+
 <script>
+
   const botonMenu = document.getElementById('boton-menu-movil');
+
   const menuMovil = document.getElementById('menu-movil');
+
   const iconoAbrir = document.getElementById('icono-abrir');
+
   const iconoCerrar = document.getElementById('icono-cerrar');
 
+
+
   if (botonMenu && menuMovil && iconoAbrir && iconoCerrar) {
+
     botonMenu.addEventListener('click', (e: Event) => {
+
       e.stopPropagation();
-      
+
+     
+
       const estaOculto = menuMovil.classList.contains('hidden');
-      
+
+     
+
       if (estaOculto) {
+
         menuMovil.classList.remove('hidden');
+
         menuMovil.classList.add('flex');
+
         iconoAbrir.classList.add('hidden');
+
         iconoCerrar.classList.remove('hidden');
+
         document.body.classList.add('overflow-hidden');
+
       } else {
+
         menuMovil.classList.add('hidden');
+
         menuMovil.classList.remove('flex');
+
         iconoAbrir.classList.remove('hidden');
+
         iconoCerrar.classList.add('hidden');
+
         document.body.classList.remove('overflow-hidden');
+
       }
+
     });
+
   }
+
+
 
   // Submenú: Quiénes somos
+
   const btnQuienes = document.getElementById('btn-submenu-quienes');
+
   const submenuQuienes = document.getElementById('submenu-quienes');
+
   const flechaQuienes = document.getElementById('flecha-quienes');
 
+
+
   if (btnQuienes && submenuQuienes && flechaQuienes) {
+
     btnQuienes.addEventListener('click', (e: Event) => {
+
       e.stopPropagation();
+
       const oculto = submenuQuienes.classList.toggle('hidden');
+
       if (flechaQuienes instanceof HTMLElement) {
+
         flechaQuienes.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+
         flechaQuienes.style.color = oculto ? '#737373' : '#10b981';
+
       }
+
     });
+
   }
+
+
 
   // Submenú: Qué hacemos
+
   const btnHacemos = document.getElementById('btn-submenu-hacemos');
+
   const submenuHacemos = document.getElementById('submenu-hacemos');
+
   const flechaHacemos = document.getElementById('flecha-hacemos');
 
+
+
   if (btnHacemos && submenuHacemos && flechaHacemos) {
+
     btnHacemos.addEventListener('click', (e: Event) => {
+
       e.stopPropagation();
+
       const oculto = submenuHacemos.classList.toggle('hidden');
+
       if (flechaHacemos instanceof HTMLElement) {
+
         flechaHacemos.style.transform = oculto ? 'rotate(0deg)' : 'rotate(180deg)';
+
         flechaHacemos.style.color = oculto ? '#737373' : '#10b981';
+
       }
+
     });
+
   }
-</script>
+
+</script> 
+
