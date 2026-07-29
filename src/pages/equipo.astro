@@ -16,7 +16,7 @@ const partners = [
   { name: "VSC", src: "/vsc.png" }
 ];
 
-// Socios Directivos (Reordenado: Carlos - Miguel Ángel - Antonio)
+// Socios Directivos
 const socios = [
   { 
     name: "Juan Carlos Guzmán Herrera", 
@@ -38,11 +38,12 @@ const socios = [
   }
 ];
 
-// Estructura Operativa y Legal
+// Estructura Operativa y Legal (Se añade 'img' para María Guadalupe)
 const colaboradores = [
   { 
     name: "María Guadalupe Hernández Delgado", 
     role: "Analista de Operaciones", 
+    img: "/maria.jpeg", // <-- Ruta de la imagen agregada
     email: "maria@nrgconsulting.mx"
   },
   { 
@@ -158,15 +159,30 @@ const colaboradores = [
           Estructura Operativa & Servicios Asociados
         </h3>
 
-        <!-- Tarjetas Horizontales Limpias (2 Columnas) -->
+        <!-- Tarjetas Horizontales (2 Columnas) -->
         <div class="grid md:grid-cols-2 gap-6">
           {colaboradores.map((item) => (
             <div class="relative bg-white border border-neutral-200 p-6 flex flex-col sm:flex-row sm:items-center justify-between shadow-sm hover:shadow-md hover:border-emerald-600 transition-all duration-300 group overflow-hidden gap-4">
-              <div class="relative z-10">
-                <span class="text-[9px] font-bold tracking-[0.2em] text-neutral-400 group-hover:text-emerald-600 transition-colors uppercase block mb-1">
-                  {item.role}
-                </span>
-                <h4 class="text-base font-bold text-neutral-950">{item.name}</h4>
+              
+              <div class="relative z-10 flex items-center gap-4">
+                {/* Renderizado condicional del Avatar si existe 'img' */}
+                {item.img && (
+                  <div class="w-14 h-14 shrink-0 bg-neutral-100 overflow-hidden rounded-full shadow-inner border border-neutral-200 flex items-center justify-center group-hover:border-emerald-500 transition-all duration-300">
+                    <img 
+                      src={item.img} 
+                      alt={item.name}
+                      class="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-500"
+                      onerror="this.onerror=null; this.src='/logo.pgn.jpeg'; this.style.opacity='0.3';" 
+                    />
+                  </div>
+                )}
+                
+                <div>
+                  <span class="text-[9px] font-bold tracking-[0.2em] text-neutral-400 group-hover:text-emerald-600 transition-colors uppercase block mb-1">
+                    {item.role}
+                  </span>
+                  <h4 class="text-base font-bold text-neutral-950">{item.name}</h4>
+                </div>
               </div>
 
               <!-- Correo Únicamente -->
