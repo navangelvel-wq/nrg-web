@@ -16,7 +16,7 @@ const partners = [
   { name: "VSC", src: "/vsc.png" }
 ];
 
-// Socios Directivos
+// Socios Directivos (Reordenado: Carlos - Miguel Ángel - Antonio)
 const socios = [
   { 
     name: "Juan Carlos Guzmán Herrera", 
@@ -25,16 +25,16 @@ const socios = [
     email: "carlosgh@nrgconsulting.mx"
   },
   { 
-    name: "Antonio Rubio Basaldua", 
-    role: "Socio Consultor", 
-    img: "/antonio.jpeg",
-    email: "antoniorb@nrgconsulting.mx"
-  },
-  { 
     name: "Miguel Ángel Nava Velázquez", 
     role: "Socio Consultor", 
     img: "/angel.jpeg",
     email: "angelv@nrgconsulting.mx"
+  },
+  { 
+    name: "Antonio Rubio Basaldua", 
+    role: "Socio Consultor", 
+    img: "/antonio.jpeg",
+    email: "antoniorb@nrgconsulting.mx"
   }
 ];
 
@@ -81,7 +81,7 @@ const colaboradores = [
   <section class="py-12 px-8 bg-white">
     <div class="max-w-6xl mx-auto">
       
-      <!-- PILARES ESTRATÉGICOS (Reemplazo de la sección de números) -->
+      <!-- PILARES ESTRATÉGICOS -->
       <div class="grid md:grid-cols-3 gap-8 mb-28 border-y border-neutral-100 py-12">
         <div class="text-center md:text-left border-l-2 border-emerald-500 pl-6">
           <h4 class="text-xs font-bold tracking-widest text-neutral-900 uppercase">Visión Integral</h4>
@@ -134,7 +134,7 @@ const colaboradores = [
                 </div>
               </div>
 
-              <!-- Bloque de Contacto Directo (Solo Correo) -->
+              <!-- Correo Únicamente -->
               <div class="pt-4 mt-6 border-t border-neutral-100 text-center">
                 <a 
                   href={`mailto:${socio.email}`} 
