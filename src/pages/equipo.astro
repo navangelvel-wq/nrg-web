@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Logos de Partners / Alianzas
+// Logos de Partners
 const partners = [
   { name: "Aspel", src: "/aspel.webp" },
   { name: "Contalink", src: "/contalink.jpeg" },
@@ -16,12 +16,11 @@ const partners = [
   { name: "VSC", src: "/vsc.png" }
 ];
 
-// Socios Consultores (Nivel Directivo)
+// Socios Directivos
 const socios = [
   { 
     name: "Juan Carlos Guzmán Herrera", 
     role: "Socio Consultor", 
-    tag: "Auditoría & Consultoría",
     img: "/carlos.jpeg",
     email: "carlosgh@nrgconsulting.mx",
     phone: "+52 442 000 0000"
@@ -29,7 +28,6 @@ const socios = [
   { 
     name: "Antonio Rubio Basaldua", 
     role: "Socio Consultor", 
-    tag: "Reingeniería & Gestión",
     img: "/antonio.jpeg",
     email: "antoniorb@nrgconsulting.mx",
     phone: "+52 442 000 0000"
@@ -37,28 +35,23 @@ const socios = [
   { 
     name: "Miguel Ángel Nava Velázquez", 
     role: "Socio Consultor", 
-    tag: "Comercio Exterior & Tech",
     img: "/angel.jpeg",
     email: "angelv@nrgconsulting.mx",
     phone: "+52 442 000 0000"
   }
 ];
 
-// Equipo Operativo & Aliados
-const equipoOperativo = [
+// Estructura Operativa y Legal
+const colaboradores = [
   { 
     name: "María Guadalupe Hernández Delgado", 
     role: "Analista de Operaciones", 
-    area: "Control & Procesos Internos",
-    img: "/guadalupe.jpeg",
     email: "maria@nrgconsulting.mx",
     phone: "+52 442 000 0000"
   },
   { 
     name: "Carlos Emiliano Mora Montes", 
     role: "Servicio Legal Asociado", 
-    area: "Defensa Corporativa & Blindaje",
-    img: "/logo.pgn.jpeg", // o avatar/logo
     email: "contacto@nrgconsulting.mx",
     phone: "+52 442 000 0000"
   }
@@ -67,171 +60,134 @@ const equipoOperativo = [
 
 <BaseLayout title="Nuestra Firma | NRG Consulting">
 
-  <!-- HERO SECTION CON EFECTO GLASS -->
-  <section class="relative py-36 px-6 md:px-12 overflow-hidden bg-neutral-950 text-white">
-    <!-- Luces de fondo -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-emerald-600/15 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-900/20 rounded-full blur-[140px] pointer-events-none"></div>
-
-    <div class="relative max-w-7xl mx-auto z-10 pt-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-8">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        Nuestra Firma
-      </div>
-
-      <div class="grid lg:grid-cols-12 gap-12 items-end">
-        <div class="lg:col-span-7">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-light text-white leading-[1.15] tracking-tight">
-            La vanguardia tecnológica <br class="hidden sm:inline" />
-            <span class="italic font-normal text-emerald-400">al servicio de su estructura fiscal.</span>
-          </h1>
-        </div>
-
-        <div class="lg:col-span-5">
-          <div class="p-8 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-2xl relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-500">
-            <div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div>
-            <p class="text-neutral-300 text-base md:text-lg font-light leading-relaxed">
-              En <strong class="text-white font-medium">NRG Consulting</strong> trascendemos la consultoría tradicional. Fundamentados en el <span class="text-emerald-400 font-normal">Principio de Control Total</span>, integramos contabilidad de precisión, estrategia fiscal y blindaje legal potenciado por soluciones tecnológicas.
-            </p>
-          </div>
+  <!-- HERO SECTION -->
+  <section class="relative py-32 px-8 overflow-hidden">
+    <div class="absolute inset-0 bg-neutral-900">
+      <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
+    </div>
+    
+    <div class="relative max-w-6xl mx-auto z-10 pt-16">
+      <span class="text-[10px] font-bold tracking-[0.4em] text-emerald-600 uppercase mb-6 block drop-shadow-sm">Nuestra Firma</span>
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <h1 class="text-4xl md:text-6xl font-serif text-neutral-900 leading-tight">
+          La vanguardia tecnológica <span class="italic text-emerald-600">al servicio de su estructura fiscal</span>.
+        </h1>
+        <div class="space-y-6 text-neutral-700 text-lg font-light border-l-2 border-emerald-500 pl-8 bg-white/40 backdrop-blur-md p-8 rounded-r-2xl shadow-sm">
+          <p>
+            En NRG Consulting, nuestra práctica trasciende la consultoría tradicional. Fundamentados en el <strong>Principio de Control Total</strong>, integramos una visión multidisciplinaria que combina la precisión contable, la estrategia fiscal y el blindaje legal, todo potenciado por soluciones tecnológicas a medida.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- MÉTRICAS DE IMPACTO -->
-  <section class="bg-neutral-900 border-y border-neutral-800/80 py-12 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-      {[ 
-        { n: "+100", label: "Proyectos Ejecutados", sub: "Casos de éxito" }, 
-        { n: "100%", label: "Control de Gestión", sub: "Garantía de precisión" }, 
-        { n: "+5", label: "Años de Experiencia", sub: "Trayectoria consolidada" }, 
-        { n: "24/7", label: "Soporte Operativo", sub: "Atención continua" } 
-      ].map(metric => (
-        <div class="p-4 border-l border-neutral-800 pl-6 hover:border-emerald-500 transition-colors duration-300">
-          <div class="text-3xl sm:text-4xl font-bold font-mono text-white mb-1">{metric.n}</div>
-          <div class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">{metric.label}</div>
-          <div class="text-[11px] text-neutral-500 mt-1">{metric.sub}</div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-
-  <!-- SECCIÓN DE EQUIPO DIRECCIÓN & OPERACIONES -->
-  <section class="py-28 px-6 md:px-12 bg-neutral-950 text-white relative">
-    <div class="max-w-7xl mx-auto">
+  <!-- MÉTRICAS Y DIRECTORIO -->
+  <section class="py-12 px-8 bg-white">
+    <div class="max-w-6xl mx-auto">
       
-      <!-- Encabezado de Sección -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-neutral-800">
-        <div>
-          <span class="text-emerald-500 text-xs font-bold uppercase tracking-[0.3em] block mb-2">Liderazgo Corporativo</span>
-          <h2 class="text-3xl md:text-4xl font-serif text-white">Dirección Estratégica</h2>
-        </div>
-        <p class="text-neutral-400 text-sm max-w-md mt-4 md:mt-0 font-light">
-          Socios directores al frente de la toma de decisiones, garantizando ética, rigor técnico e innovación tecnológica.
-        </p>
-      </div>
-
-      <!-- GRID DE SOCIOS (3 Tarjetas Principales Eleantes) -->
-      <div class="grid md:grid-cols-3 gap-8 mb-20">
-        {socios.map((socio) => (
-          <div class="group relative rounded-2xl bg-neutral-900/60 border border-neutral-800/80 p-8 hover:border-emerald-500/50 hover:bg-neutral-900 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-xl">
-            <!-- Glow hover effect -->
-            <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all duration-500"></div>
-
-            <div>
-              <!-- Header Tarjeta -->
-              <div class="flex items-center justify-between mb-6">
-                <span class="text-[10px] font-bold tracking-widest text-emerald-400 uppercase px-2.5 py-1 rounded-md bg-emerald-950/80 border border-emerald-800/50">
-                  {socio.tag}
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">01 / SOCIO</span>
-              </div>
-
-              <!-- Foto e Info -->
-              <div class="flex items-center gap-5 mb-6">
-                <div class="relative w-20 h-20 rounded-xl overflow-hidden border border-neutral-700/60 group-hover:border-emerald-400 transition-all duration-500 shrink-0">
-                  <img 
-                    src={socio.img} 
-                    alt={socio.name}
-                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    onerror="this.onerror=null; this.src='/logo.pgn.jpeg'; this.style.opacity='0.5';"
-                  />
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors leading-tight">
-                    {socio.name}
-                  </h3>
-                  <p class="text-xs text-neutral-400 mt-1">{socio.role}</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Botones de Contacto Directo -->
-            <div class="pt-6 border-t border-neutral-800/80 flex flex-col gap-2">
-              <a 
-                href={`mailto:${socio.email}`}
-                class="flex items-center justify-between px-3 py-2 rounded-lg bg-neutral-800/40 hover:bg-emerald-500/10 border border-transparent hover:border-emerald-500/30 text-xs text-neutral-300 hover:text-emerald-400 transition-all duration-300 group/link"
-              >
-                <span class="truncate">{socio.email}</span>
-                <svg class="w-3.5 h-3.5 text-neutral-500 group-hover/link:text-emerald-400 group-hover/link:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-
-              <a 
-                href={`tel:${socio.phone.replace(/\s+/g, '')}`}
-                class="flex items-center justify-between px-3 py-2 rounded-lg bg-neutral-800/20 hover:bg-neutral-800 text-xs font-mono text-neutral-400 hover:text-white transition-all duration-300"
-              >
-                <span>{socio.phone}</span>
-                <svg class="w-3.5 h-3.5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </a>
-            </div>
+      <!-- Métricas -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-28 border-y border-neutral-100 py-16">
+        {[ 
+          {n: "+100", t: "Proyectos Ejecutados"}, 
+          {n: "100%", t: "Control de Gestión"}, 
+          {n: "+5", t: "Años de Experiencia"}, 
+          {n: "24/7", t: "Soporte Técnico"} 
+        ].map(item => (
+          <div class="text-center group cursor-default">
+            <div class="text-4xl font-bold text-neutral-950 group-hover:text-emerald-600 transition-colors duration-300">{item.n}</div>
+            <div class="text-[9px] uppercase tracking-widest text-neutral-400 mt-3 group-hover:text-emerald-600 transition-colors duration-300">{item.t}</div>
           </div>
         ))}
       </div>
 
+      <!-- SECCIÓN EQUIPO DIRECCIÓN -->
+      <div class="mb-24">
+        <div class="flex items-center justify-between mb-12 border-b border-neutral-100 pb-4">
+          <h2 class="text-[10px] font-bold tracking-[0.4em] uppercase text-neutral-400">
+            Dirección Estratégica
+          </h2>
+          <span class="text-xs text-neutral-400 font-mono">Socios Consultores</span>
+        </div>
 
-      <!-- SUB-SECCIÓN: OPERACIONES Y ALIADOS (Estructura Horizontal Limpia) -->
-      <div class="mt-16 pt-12 border-t border-neutral-800">
-        <span class="text-neutral-400 text-xs font-bold uppercase tracking-[0.25em] block mb-8">
-          Estructura Operativa & Aliados
-        </span>
-
-        <div class="grid lg:grid-cols-2 gap-6">
-          {equipoOperativo.map((miembro) => (
-            <div class="p-6 rounded-xl bg-neutral-900/40 border border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-neutral-700 transition-all duration-300">
-              <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-lg bg-neutral-800 overflow-hidden border border-neutral-700 shrink-0">
+        <!-- Grid de Socios Principales (3 Columnas) -->
+        <div class="grid md:grid-cols-3 gap-8">
+          {socios.map((socio) => (
+            <div class="relative bg-white p-8 border border-neutral-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-emerald-200 transition-all duration-500 ease-out group overflow-hidden flex flex-col justify-between">
+              <div>
+                <!-- Avatar Circular Limpio -->
+                <div class="w-24 h-24 mb-6 mx-auto bg-neutral-100 overflow-hidden rounded-full shadow-inner border border-neutral-200 flex items-center justify-center group-hover:border-emerald-500 transition-all duration-500">
                   <img 
-                    src={miembro.img} 
-                    alt={miembro.name}
-                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                    onerror="this.onerror=null; this.src='/logo.pgn.jpeg'; this.style.opacity='0.4';"
+                    src={socio.img} 
+                    alt={socio.name}
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700"
+                    onerror="this.onerror=null; this.src='/logo.pgn.jpeg'; this.style.opacity='0.3';" 
                   />
                 </div>
-                <div>
-                  <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider block">
-                    {miembro.role}
+
+                <!-- Nombre y Puesto -->
+                <div class="text-center">
+                  <span class="text-[9px] font-bold tracking-[0.2em] text-emerald-600 uppercase block mb-1">
+                    {socio.role}
                   </span>
-                  <h4 class="text-base font-bold text-white mt-0.5">{miembro.name}</h4>
-                  <p class="text-xs text-neutral-400 font-light">{miembro.area}</p>
+                  <h3 class="text-lg font-bold text-neutral-950 leading-snug mb-4">
+                    {socio.name}
+                  </h3>
                 </div>
               </div>
 
-              <!-- Contactos -->
-              <div class="flex sm:flex-col gap-3 sm:gap-1 text-xs w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-800">
-                <a href={`mailto:${miembro.email}`} class="text-emerald-400 hover:underline font-mono truncate">
-                  {miembro.email}
+              <!-- Bloque de Contacto Directo -->
+              <div class="pt-4 mt-6 border-t border-neutral-100 text-center space-y-1.5">
+                <a 
+                  href={`mailto:${socio.email}`} 
+                  class="text-xs text-neutral-500 hover:text-emerald-600 font-mono block transition-colors truncate"
+                  title={socio.email}
+                >
+                  {socio.email}
                 </a>
-                <a href={`tel:${miembro.phone.replace(/\s+/g, '')}`} class="text-neutral-400 hover:text-white font-mono">
-                  {miembro.phone}
+                <a 
+                  href={`tel:${socio.phone.replace(/\s+/g, '')}`} 
+                  class="text-xs text-neutral-400 hover:text-neutral-700 font-mono block transition-colors"
+                >
+                  {socio.phone}
                 </a>
               </div>
+
+              <!-- Barra Inferior de Acento en Hover -->
+              <div class="absolute bottom-0 left-0 w-0 h-1 bg-emerald-600 group-hover:w-full transition-all duration-500 ease-in-out"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- SUB-SECCIÓN OPERACIONES & ALIADOS -->
+      <div class="mb-32">
+        <h3 class="text-[10px] font-bold tracking-[0.4em] uppercase text-neutral-400 mb-8 border-b border-neutral-100 pb-4">
+          Estructura Operativa & Servicios Asociados
+        </h3>
+
+        <!-- Tarjetas Horizontales Limpias (2 Columnas) -->
+        <div class="grid md:grid-cols-2 gap-6">
+          {colaboradores.map((item) => (
+            <div class="relative bg-white border border-neutral-200 p-6 flex flex-col sm:flex-row sm:items-center justify-between shadow-sm hover:shadow-md hover:border-emerald-600 transition-all duration-300 group overflow-hidden gap-4">
+              <div class="relative z-10">
+                <span class="text-[9px] font-bold tracking-[0.2em] text-neutral-400 group-hover:text-emerald-600 transition-colors uppercase block mb-1">
+                  {item.role}
+                </span>
+                <h4 class="text-base font-bold text-neutral-950">{item.name}</h4>
+              </div>
+
+              <!-- Datos de contacto compactos -->
+              <div class="relative z-10 text-left sm:text-right text-xs space-y-1 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100">
+                <a href={`mailto:${item.email}`} class="text-xs text-neutral-500 hover:text-emerald-600 block transition-colors font-mono">
+                  {item.email}
+                </a>
+                <a href={`tel:${item.phone.replace(/\s+/g, '')}`} class="text-xs text-neutral-400 hover:text-neutral-700 block transition-colors font-mono">
+                  {item.phone}
+                </a>
+              </div>
+
+              <div class="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
         </div>
@@ -240,33 +196,28 @@ const equipoOperativo = [
     </div>
   </section>
 
-
-  <!-- CITA/VALORES DE MARCA -->
-  <section class="py-20 px-6 bg-white text-neutral-900 border-y border-neutral-200">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="text-emerald-600 text-4xl font-serif block mb-4">“</span>
-      <h2 class="text-2xl md:text-3xl font-serif italic leading-relaxed text-neutral-900">
-        El Principio de Control Total no es solo una metodología de trabajo, es nuestro compromiso inquebrantable con la trascendencia y seguridad de su patrimonio.
-      </h2>
-      <div class="mt-6 w-12 h-0.5 bg-emerald-500 mx-auto"></div>
-    </div>
+  <!-- FRASE / MANIFIESTO -->
+  <section class="py-24 bg-neutral-50 px-8 text-center border-t border-neutral-100">
+    <h2 class="text-2xl md:text-4xl font-serif text-neutral-900 italic max-w-3xl mx-auto leading-relaxed">
+      "El Principio de Control Total no es solo una metodología, es nuestro compromiso con la integridad de su patrimonio."
+    </h2>
   </section>
 
-
-  <!-- SLIDER INFINITO DE PARTNERS -->
-  <section class="py-16 bg-neutral-900 text-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
-      <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-neutral-400">Tecnologías & Alianzas Integradas</span>
+  <!-- MARQUEE PARTNERS -->
+  <section class="py-16 bg-white border-y border-neutral-100">
+    <div class="max-w-6xl mx-auto px-8 text-center mb-10">
+      <h3 class="text-[10px] font-bold tracking-[0.4em] uppercase text-neutral-400">Tecnología y Alianzas Estratégicas</h3>
     </div>
     
-    <div class="relative w-full overflow-hidden">
-      <div class="flex animate-marquee gap-16 items-center whitespace-nowrap">
+    <div class="relative max-w-6xl mx-auto overflow-hidden">
+      <div class="flex animate-marquee gap-24 items-center whitespace-nowrap">
         {[...partners, ...partners].map((p) => (
-          <div class="flex-shrink-0 flex items-center justify-center w-36 h-16 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <div class="flex-shrink-0 flex items-center justify-center w-40 h-20 transition-all duration-500 hover:scale-110 cursor-default opacity-100">
             <img 
               src={p.src} 
               alt={p.name} 
-              class="max-h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" 
+              class="max-h-16 w-auto object-contain" 
+              style="filter: none !important;"
             />
           </div>
         ))}
@@ -274,34 +225,50 @@ const equipoOperativo = [
     </div>
   </section>
 
-
-  <!-- INFRAESTRUCTURA OPERATIVA (SERVICIOS) -->
-  <section class="bg-neutral-950 py-28 px-6 md:px-12 text-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16 pb-6 border-b border-neutral-800">
-        <span class="text-emerald-500 text-xs font-bold uppercase tracking-[0.3em] block mb-2">Capacidades</span>
-        <h2 class="text-3xl md:text-4xl font-serif">Infraestructura Operativa</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
+  <!-- INFRAESTRUCTURA OPERATIVA -->
+  <section class="bg-neutral-950 py-24 px-8 relative overflow-hidden">
+    <div class="absolute top-1/4 right-0 w-1/2 h-1/2 bg-emerald-900/20 blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+      <h2 class="text-sm font-bold tracking-[0.2em] uppercase text-emerald-500 mb-16 border-b border-neutral-800 pb-4">Infraestructura Operativa</h2>
+      <div class="grid md:grid-cols-3 gap-x-12 gap-y-16">
         {[
-          { title: "Finanzas y Cumplimiento", desc: "Contabilidad, impuestos, nóminas e IMSS respaldados por planeación fiscal ética y estructurada." },
-          { title: "Estrategia de Negocios", desc: "Evaluación de proyectos de inversión, planes de negocio ejecutivos y control interno." },
-          { title: "Automatización & Tech", desc: "Desarrollo de software a medida, automatización de flujos financieros y plataformas web." },
-          { title: "Consultoría Legal", desc: "Blindaje legal corporativo, gestión de contratos y defensa estratégica en alianza." },
-          { title: "Comercio Exterior", desc: "Gestión de logística internacional, regímenes aduaneros y cumplimiento regulatorio." },
-          { title: "Control de Gestión", desc: "Arquitectura de datos para la mitigación de riesgos y decisiones en tiempo real." }
-        ].map((item, index) => (
-          <div class="p-8 rounded-2xl bg-neutral-900/40 border border-neutral-800/80 hover:border-emerald-500/40 hover:bg-neutral-900 transition-all duration-300 group">
-            <div class="text-emerald-500 text-xs font-mono font-bold mb-4">0{index + 1} //</div>
-            <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors mb-3">{item.title}</h3>
-            <p class="text-xs text-neutral-400 font-light leading-relaxed">{item.desc}</p>
+          { t: "Finanzas y Cumplimiento", d: "Contabilidad, impuestos, nóminas e IMSS con planeación fiscal ética." },
+          { t: "Estrategia de Negocios", d: "Proyectos de inversión, planes de negocio y control interno." },
+          { t: "Automatización y Tech", d: "Desarrollo a la medida, automatización de flujos financieros y plataformas web." },
+          { t: "Consultoría Legal", d: "Blindaje legal corporativo y defensa estratégica en alianza." },
+          { t: "Comercio Exterior", d: "Logística internacional y regímenes aduaneros especializados." },
+          { t: "Control de Gestión", d: "Mitigación de riesgos y arquitectura de sistemas para toma de decisiones." }
+        ].map(dept => (
+          <div class="group border-l-2 border-neutral-800 pl-8 hover:border-emerald-500 transition-all duration-300">
+            <h4 class="text-sm font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">{dept.t}</h4>
+            <p class="text-xs text-neutral-400 font-light group-hover:text-neutral-300 transition-colors">{dept.d}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- FOOTER BANNER / VALORES -->
+  <section class="py-24 px-8 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-12 text-center">
+        {[ 
+          {t: "Automatización", d: "Procesos digitales"}, 
+          {t: "Control Total", d: "Blindaje institucional"}, 
+          {t: "Estrategia", d: "Visión corporativa"} 
+        ].map(m => (
+          <div class="group cursor-default hover:-translate-y-2 transition-transform duration-500">
+             <div class="w-16 h-16 border border-neutral-200 group-hover:border-emerald-600 group-hover:bg-emerald-50 mx-auto mb-6 flex items-center justify-center transition-all duration-500 rotate-45 group-hover:rotate-0">
+                <div class="w-2 h-2 bg-emerald-600 rounded-full"></div>
+             </div>
+             <h4 class="font-bold text-neutral-950">{m.t}</h4>
+             <p class="text-[10px] text-neutral-400 uppercase tracking-widest mt-2">{m.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
 </BaseLayout>
 
 <style>
@@ -310,6 +277,6 @@ const equipoOperativo = [
     100% { transform: translateX(-50%); }
   }
   .animate-marquee {
-    animation: marquee 35s linear infinite;
+    animation: marquee 30s linear infinite;
   }
 </style>
