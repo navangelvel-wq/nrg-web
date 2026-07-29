@@ -38,7 +38,7 @@ const socios = [
   }
 ];
 
-// Estructura Operativa y Legal
+// Estructura Operativa y Legal (Ambos con imagen/logo asignado)
 const colaboradores = [
   { 
     name: "María Guadalupe Hernández Delgado", 
@@ -49,6 +49,7 @@ const colaboradores = [
   { 
     name: "Carlos Emiliano Mora Montes", 
     role: "Servicio Legal Asociado", 
+    img: "/logo.pgn.jpeg", // <-- Logo asignado a Carlos Mora
     email: "contacto@nrgconsulting.mx"
   }
 ];
@@ -159,40 +160,45 @@ const colaboradores = [
           Estructura Operativa & Servicios Asociados
         </h3>
 
-        <!-- Tarjetas Horizontales (2 Columnas) -->
-        <div class="grid md:grid-cols-2 gap-6">
+        <!-- Grid Simétrico de 2 Columnas -->
+        <div class="grid md:grid-cols-2 gap-8">
           {colaboradores.map((item) => (
-            <div class="relative bg-white border border-neutral-200 p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md hover:border-emerald-600 transition-all duration-300 group overflow-hidden">
-              
-              <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                {/* Avatar idéntico en tamaño a los socios (w-24 h-24) */}
-                {item.img && (
-                  <div class="w-24 h-24 shrink-0 bg-neutral-100 overflow-hidden rounded-full shadow-inner border border-neutral-200 flex items-center justify-center group-hover:border-emerald-500 transition-all duration-500">
-                    <img 
-                      src={item.img} 
-                      alt={item.name}
-                      class="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700"
-                      onerror="this.onerror=null; this.src='/logo.pgn.jpeg'; this.style.opacity='0.3';" 
-                    />
-                  </div>
-                )}
-                
-                <div class="flex flex-col justify-center h-full pt-1">
-                  <span class="text-[9px] font-bold tracking-[0.2em] text-neutral-400 group-hover:text-emerald-600 transition-colors uppercase block mb-1">
+            <div class="relative bg-white border border-neutral-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-emerald-200 transition-all duration-500 ease-out group overflow-hidden flex flex-col justify-between">
+              <div>
+                <!-- Avatar / Logo Circular (Mismo tamaño que los socios) -->
+                <div class="w-20 h-20 mb-6 mx-auto bg-neutral-100 overflow-hidden rounded-full shadow-inner border border-neutral-200 flex items-center justify-center group-hover:border-emerald-500 transition-all duration-500">
+                  <img 
+                    src={item.img} 
+                    alt={item.name}
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-700"
+                    onerror="this.onerror=null; this.src='/logo.pgn.jpeg'; this.style.opacity='0.3';" 
+                  />
+                </div>
+
+                <!-- Nombre y Puesto -->
+                <div class="text-center">
+                  <span class="text-[9px] font-bold tracking-[0.2em] text-neutral-400 group-hover:text-emerald-600 uppercase block mb-1 transition-colors">
                     {item.role}
                   </span>
-                  <h4 class="text-base font-bold text-neutral-950 leading-snug">{item.name}</h4>
+                  <h3 class="text-base font-bold text-neutral-950 leading-snug mb-2">
+                    {item.name}
+                  </h3>
                 </div>
               </div>
 
               <!-- Correo Únicamente -->
-              <div class="relative z-10 text-center sm:text-right shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100 w-full sm:w-auto">
-                <a href={`mailto:${item.email}`} class="text-xs text-neutral-500 hover:text-emerald-600 block transition-colors font-mono">
+              <div class="pt-4 mt-6 border-t border-neutral-100 text-center">
+                <a 
+                  href={`mailto:${item.email}`} 
+                  class="text-xs text-neutral-500 hover:text-emerald-600 font-mono block transition-colors truncate"
+                  title={item.email}
+                >
                   {item.email}
                 </a>
               </div>
 
-              <div class="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <!-- Barra Inferior de Acento en Hover -->
+              <div class="absolute bottom-0 left-0 w-0 h-1 bg-emerald-600 group-hover:w-full transition-all duration-500 ease-in-out"></div>
             </div>
           ))}
         </div>
