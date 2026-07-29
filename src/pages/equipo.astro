@@ -22,22 +22,19 @@ const socios = [
     name: "Juan Carlos Guzmán Herrera", 
     role: "Socio Consultor", 
     img: "/carlos.jpeg",
-    email: "carlosgh@nrgconsulting.mx",
-    phone: "+52 442 000 0000"
+    email: "carlosgh@nrgconsulting.mx"
   },
   { 
     name: "Antonio Rubio Basaldua", 
     role: "Socio Consultor", 
     img: "/antonio.jpeg",
-    email: "antoniorb@nrgconsulting.mx",
-    phone: "+52 442 000 0000"
+    email: "antoniorb@nrgconsulting.mx"
   },
   { 
     name: "Miguel Ángel Nava Velázquez", 
     role: "Socio Consultor", 
     img: "/angel.jpeg",
-    email: "angelv@nrgconsulting.mx",
-    phone: "+52 442 000 0000"
+    email: "angelv@nrgconsulting.mx"
   }
 ];
 
@@ -46,14 +43,12 @@ const colaboradores = [
   { 
     name: "María Guadalupe Hernández Delgado", 
     role: "Analista de Operaciones", 
-    email: "maria@nrgconsulting.mx",
-    phone: "+52 442 000 0000"
+    email: "maria@nrgconsulting.mx"
   },
   { 
     name: "Carlos Emiliano Mora Montes", 
     role: "Servicio Legal Asociado", 
-    email: "contacto@nrgconsulting.mx",
-    phone: "+52 442 000 0000"
+    email: "contacto@nrgconsulting.mx"
   }
 ];
 ---
@@ -82,23 +77,26 @@ const colaboradores = [
     </div>
   </section>
 
-  <!-- MÉTRICAS Y DIRECTORIO -->
+  <!-- SECCIÓN PRINCIPAL DE CONTENIDO -->
   <section class="py-12 px-8 bg-white">
     <div class="max-w-6xl mx-auto">
       
-      <!-- Métricas -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-28 border-y border-neutral-100 py-16">
-        {[ 
-          {n: "+100", t: "Proyectos Ejecutados"}, 
-          {n: "100%", t: "Control de Gestión"}, 
-          {n: "+5", t: "Años de Experiencia"}, 
-          {n: "24/7", t: "Soporte Técnico"} 
-        ].map(item => (
-          <div class="text-center group cursor-default">
-            <div class="text-4xl font-bold text-neutral-950 group-hover:text-emerald-600 transition-colors duration-300">{item.n}</div>
-            <div class="text-[9px] uppercase tracking-widest text-neutral-400 mt-3 group-hover:text-emerald-600 transition-colors duration-300">{item.t}</div>
-          </div>
-        ))}
+      <!-- PILARES ESTRATÉGICOS (Reemplazo de la sección de números) -->
+      <div class="grid md:grid-cols-3 gap-8 mb-28 border-y border-neutral-100 py-12">
+        <div class="text-center md:text-left border-l-2 border-emerald-500 pl-6">
+          <h4 class="text-xs font-bold tracking-widest text-neutral-900 uppercase">Visión Integral</h4>
+          <p class="text-xs text-neutral-500 mt-2 font-light leading-relaxed">Conexión directa entre la estrategia fiscal, contable y el marco legal corporativo.</p>
+        </div>
+        
+        <div class="text-center md:text-left border-l-2 border-emerald-500 pl-6">
+          <h4 class="text-xs font-bold tracking-widest text-neutral-900 uppercase">Tecnología Aplicada</h4>
+          <p class="text-xs text-neutral-500 mt-2 font-light leading-relaxed">Automatización de flujos y sistemas avanzados para el control total de operaciones.</p>
+        </div>
+
+        <div class="text-center md:text-left border-l-2 border-emerald-500 pl-6">
+          <h4 class="text-xs font-bold tracking-widest text-neutral-900 uppercase">Atención Senior</h4>
+          <p class="text-xs text-neutral-500 mt-2 font-light leading-relaxed">Acompañamiento directo por parte de los socios consultores en cada proyecto.</p>
+        </div>
       </div>
 
       <!-- SECCIÓN EQUIPO DIRECCIÓN -->
@@ -136,20 +134,14 @@ const colaboradores = [
                 </div>
               </div>
 
-              <!-- Bloque de Contacto Directo -->
-              <div class="pt-4 mt-6 border-t border-neutral-100 text-center space-y-1.5">
+              <!-- Bloque de Contacto Directo (Solo Correo) -->
+              <div class="pt-4 mt-6 border-t border-neutral-100 text-center">
                 <a 
                   href={`mailto:${socio.email}`} 
                   class="text-xs text-neutral-500 hover:text-emerald-600 font-mono block transition-colors truncate"
                   title={socio.email}
                 >
                   {socio.email}
-                </a>
-                <a 
-                  href={`tel:${socio.phone.replace(/\s+/g, '')}`} 
-                  class="text-xs text-neutral-400 hover:text-neutral-700 font-mono block transition-colors"
-                >
-                  {socio.phone}
                 </a>
               </div>
 
@@ -177,13 +169,10 @@ const colaboradores = [
                 <h4 class="text-base font-bold text-neutral-950">{item.name}</h4>
               </div>
 
-              <!-- Datos de contacto compactos -->
-              <div class="relative z-10 text-left sm:text-right text-xs space-y-1 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100">
+              <!-- Correo Únicamente -->
+              <div class="relative z-10 text-left sm:text-right shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100">
                 <a href={`mailto:${item.email}`} class="text-xs text-neutral-500 hover:text-emerald-600 block transition-colors font-mono">
                   {item.email}
-                </a>
-                <a href={`tel:${item.phone.replace(/\s+/g, '')}`} class="text-xs text-neutral-400 hover:text-neutral-700 block transition-colors font-mono">
-                  {item.phone}
                 </a>
               </div>
 
